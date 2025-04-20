@@ -1,0 +1,22 @@
+{
+  "name": "anna-engineering/http",
+  "autoload": {
+    "psr-4": {
+      "A\\Http\\": ["src/A/Http"]
+    },
+    "files": [
+      "src/functions.php"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "": ["tests/"]
+    }
+  },
+  "require": {
+  },
+  "require-dev": {
+    "phpunit/phpunit": "*",
+    "brianium/paratest": "*"
+  }
+}
