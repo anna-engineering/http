@@ -14,9 +14,12 @@
     }
   },
   "require": {
+    "anna-engineering/event": "*",
+    "anna-engineering/async": "*"
   },
   "require-dev": {
     "phpunit/phpunit": "*",
     "brianium/paratest": "*"
-  }
+  },
+  "minimum-stability": "dev"
 }
