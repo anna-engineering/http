@@ -28,9 +28,9 @@ if (!function_exists('fetch'))
 
 if (!function_exists('fetch_json'))
 {
-    function fetch_json($url, string $data = '', string|null $method = '', $headers = []) : \A\Async\PromiseProxyInterface
+    function fetch_json($url, mixed $data = '', string|null $method = '', $headers = []) : \A\Async\PromiseProxyInterface
     {
-        $data = json_encode($data);
+        $data = $data === '' ? '' : json_encode($data);
         $headers['Content-Type'] = 'application/json';
         $promise = fetch($url, $data, $method, $headers);
 
