@@ -17,11 +17,25 @@ if (!function_exists('fetch'))
             $url,
             \A\Http\Message::PROTOCOL_1_1,
             new \A\Http\Headers($headers),
-            $data
+            $data,
         ));
 
         return new \A\Async\PromiseProxy(function () use ($curl) {
             return $curl->exec();
+        });
+    }
+}
+
+if (!function_exists('fetch_json'))
+{
+    function fetch_json($url, string $data = '', string|null $method = '', $headers = []) : \A\Async\PromiseProxyInterface
+    {
+        $data = json_encode($data);
+        $headers['Content-Type'] = 'application/json';
+        $promise = fetch($url, $data, $method, $headers);
+
+        return new \A\Async\PromiseProxy(function () use ($promise) {
+            return json_decode($promise->getBody());
         });
     }
 }
@@ -36,7 +50,7 @@ if (!function_exists('fetch_stream'))
                                      $url,
                                      \A\Http\Message::PROTOCOL_1_1,
                                      new \A\Http\Headers($headers),
-                                     $data
+                                     $data,
         ));
 
         yield from $curl->stream($separator);
