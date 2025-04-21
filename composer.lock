@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a78eae76384a684ad9514a92afe5a83e",
+    "content-hash": "175b1e6d53d38435e0c17a6abb3a2c38",
     "packages": [
         {
             "name": "anna-engineering/async",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/anna-engineering/async.git",
-                "reference": "d879fe76d2e78715d0047d844e6a2bb4240ed335"
+                "reference": "c54c4d94f5ecc1da7909846fc50a53ef6f080627"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/anna-engineering/async/zipball/d879fe76d2e78715d0047d844e6a2bb4240ed335",
-                "reference": "d879fe76d2e78715d0047d844e6a2bb4240ed335",
+                "url": "https://api.github.com/repos/anna-engineering/async/zipball/c54c4d94f5ecc1da7909846fc50a53ef6f080627",
+                "reference": "c54c4d94f5ecc1da7909846fc50a53ef6f080627",
                 "shasum": ""
             },
             "require-dev": {
@@ -41,7 +41,7 @@
                 "issues": "https://github.com/anna-engineering/async/issues",
                 "source": "https://github.com/anna-engineering/async/tree/main"
             },
-            "time": "2025-04-20T09:06:41+00:00"
+            "time": "2025-04-21T06:36:12+00:00"
         },
         {
             "name": "anna-engineering/event",
@@ -2754,12 +2754,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/string.git",
-                "reference": "a75110076ac661a4a52792b5a1d286d113653a70"
+                "reference": "f3570b8c61ca887a9e2938e85cb6458515d2b125"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/string/zipball/a75110076ac661a4a52792b5a1d286d113653a70",
-                "reference": "a75110076ac661a4a52792b5a1d286d113653a70",
+                "url": "https://api.github.com/repos/symfony/string/zipball/f3570b8c61ca887a9e2938e85cb6458515d2b125",
+                "reference": "f3570b8c61ca887a9e2938e85cb6458515d2b125",
                 "shasum": ""
             },
             "require": {
@@ -2833,7 +2833,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-02-24T14:05:52+00:00"
+            "time": "2025-04-20T20:19:01+00:00"
         },
         {
             "name": "theseer/tokenizer",
@@ -2891,7 +2891,9 @@
     "stability-flags": {},
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": {},
+    "platform": {
+        "ext-curl": "*"
+    },
     "platform-dev": {},
     "plugin-api-version": "2.6.0"
 }

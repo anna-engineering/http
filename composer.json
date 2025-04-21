@@ -15,7 +15,8 @@
   },
   "require": {
     "anna-engineering/event": "*",
-    "anna-engineering/async": "*"
+    "anna-engineering/async": "*",
+    "ext-curl": "*"
   },
   "require-dev": {
     "phpunit/phpunit": "*",
