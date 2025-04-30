@@ -45,7 +45,7 @@ class CurlTransaction
         // curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_2_0);
 
         // Headers
-        curl_setopt($this->ch, CURLOPT_HTTPHEADER, $this->request->headers->allNotBugged());
+        curl_setopt($this->ch, CURLOPT_HTTPHEADER, $this->request->headers->allNotBuggedUnified());
 
         // Data
         if (!empty($this->request->body))

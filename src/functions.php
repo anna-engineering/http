@@ -31,6 +31,11 @@ if (!function_exists('fetch_json'))
     function fetch_json($url, mixed $data = '', string|null $method = '', $headers = []) : \A\Async\PromiseProxyInterface
     {
         $data = $data === '' ? '' : json_encode($data);
+        $headers['Accept'] = 'application/json';
+        if (!empty($data))
+        {
+            $headers['Content-Length'] = strlen($data);
+        }
         $headers['Content-Type'] = 'application/json';
         $promise = fetch($url, $data, $method, $headers);
 

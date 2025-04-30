@@ -206,6 +206,18 @@ class Headers implements \ArrayAccess, \IteratorAggregate, \Countable, \Stringab
         return $result;
     }
 
+    public function allNotBuggedUnified() : array
+    {
+        $data = [];
+
+        foreach ($this->allNotBugged() as $key => $value)
+        {
+            $data[] = "$key: $value";
+        }
+
+        return $data;
+    }
+
     // ------------------------------------------------------------------------
     // Implementation of ArrayAccess, IteratorAggregate, Countable
     // ------------------------------------------------------------------------
