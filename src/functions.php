@@ -12,7 +12,7 @@ if (!function_exists('fetch'))
      */
     function fetch($url, string $data = '', string|null $method = '', $headers = []) : \A\Async\PromiseProxyInterface
     {
-        $curl = new \A\Http\Curl(new \A\Http\Request(
+        $curl = new \A\Http\CurlTransaction(new \A\Http\Request(
             $method ?: 'GET',
             $url,
             \A\Http\Message::PROTOCOL_1_1,
@@ -45,7 +45,7 @@ if (!function_exists('fetch_stream'))
     // https://curl.se/docs/caextract.html
     function fetch_stream($url, string|null $data = null, string|null $method = null, $headers = [], $separator = \A\Http\Message::LINEBREAK)
     {
-        $curl = new \A\Http\Curl(new \A\Http\Request(
+        $curl = new \A\Http\CurlTransaction(new \A\Http\Request(
                                      $method ?: 'GET',
                                      $url,
                                      \A\Http\Message::PROTOCOL_1_1,

@@ -6,7 +6,7 @@ use CurlHandle;
 use CurlMultiHandle;
 use RuntimeException;
 
-class Curl
+class CurlTransaction
 {
     const int SENDING        = 0;
     const int RECEIVING_HEAD = 1;
