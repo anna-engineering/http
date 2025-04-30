@@ -22,8 +22,13 @@ class CurlTransaction
     protected Response|null   $response = null;
     protected int             $running  = 1;
 
-    public function __construct(protected Request $request)
+    protected(set) int $id;
+
+    public function __construct(protected(set) Request $request)
     {
+        static $id = 0;
+        $this->id = ++$id;
+
         $this->mh = curl_multi_init();
         $this->ch = curl_init();
 
@@ -71,6 +76,8 @@ class CurlTransaction
         if ($this->status === self::SENDING)
         {
             $this->status = self::RECEIVING_HEAD;
+
+            \A\Event\EventDispatcher::instance()->dispatchEvent('curl.sending', $this, $this->request);
         }
 
         if (($status = curl_multi_exec($this->mh, $this->running)) !== CURLM_OK)
@@ -100,7 +107,11 @@ class CurlTransaction
 
         $this->status = self::DONE;
 
-        return $this->toResponse();
+        $response = $this->toResponse();
+
+        \A\Event\EventDispatcher::instance()->dispatchEvent('curl.done', $this, $this->request, $response);
+
+        return $response;
     }
 
     protected function toResponse() : Response
@@ -117,6 +128,13 @@ class CurlTransaction
         $result = curl_multi_getcontent($this->ch);
 
         return $this->response;
+    }
+
+    public function getResponse() : Response
+    {
+        if ($this->response)
+            return $this->response;
+        return $this->toResponse();
     }
 
     public function __destruct()
